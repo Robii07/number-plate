@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Number Plate OCR</title>
+</head>
+<body>
+    {% if imagename and predicted_name %}
+    <p>Here is the input image: </p>
+        <img margin-left:"50px" width="400" src="{{ url_for('static', filename=imagename) }}" alt="car image">
+        <br>
+    <p>Here is the output image: </p>
+        <img width="700" height="400" src="{{ url_for('static', filename=predicted_name) }}" alt="predicted number plate car image">
+    {% else %}
+    <p>Please upload the car image with number plate clearly visible </p>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <input type="file" id="image" name="image">
+        <input type="submit">
+    </form>
+    {% endif %}
+</body>
+</html>
