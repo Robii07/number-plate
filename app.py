@@ -1,6 +1,6 @@
-from flask import Flask#, Response, request, render_template
+from flask import Flask, Response, request, render_template
 import os
-#import predict
+import predict
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER']='./static'
@@ -11,12 +11,9 @@ def get_file(filename):
     except IOError as e:
         return str(e)
     
-@app.route("/")
-def home():
-    return "Hello World"
 
-@app.route("/home2", methods=['GET', 'POST'])
-def home2():
+@app.route("/", methods=['GET', 'POST'])
+def home():
     imagename= None
     predicted_name= None
     if request.method == 'POST':
