@@ -1,0 +1,6 @@
+flask
+tensorflow
+scikit-image
+scikit-learn
+opencv-python
+numpy
